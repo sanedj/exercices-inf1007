@@ -4,19 +4,33 @@
 import math
 import copy
 import itertools
-
+from sympy import *
 
 def get_maximums(numbers):
-	return [0]
+	list_max = []
+	for liste in numbers:
+		list_max.append(max(liste))
+	return list_max
 
 def join_integers(numbers):
-	return 0
+	return int("".join([str(chiffre) for chiffre in numbers]))
 
 def generate_prime_numbers(limit):
-	return [0]
+	premiers = []
+	nombres = [i for i in range(2, limit + 1)]
+	while len(nombres) != 0:
+		premiers.append(nombres[0])
+		nombres = [elem for elem in nombres if elem % nombres[0] != 0]
+
+	return premiers
 
 def combine_strings_and_numbers(strings, num_combinations, excluded_multiples):
-	return [""]
+	return [
+		string + str(i)
+			for i in range(1, num_combinations + 1)
+			if excluded_multiples is None or i % excluded_multiples != 0
+				for string in strings
+	]
 
 
 if __name__ == "__main__":

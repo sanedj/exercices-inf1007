@@ -5,19 +5,28 @@ import random
 
 
 def get_first_part_of_name(name):
-	return ""
+	return "Bonjour, " + (name.split('-')[0]).capitalize()
 
 def get_random_sentence(animals, adjectives, fruits):
-	return ""
+	return f"Aujourd'hui, j'ai vu un {random.choice(animals)} s'emparer d'un panier {random.choice(adjectives)} plein de {random.choice(fruits)}."
 
-def format_date(year, month, day, hours, minutes, seconds):
-	return ""
+def format_date(year, month, day, hours, minutes, seconds):	
+	return f"{year:04}-{month:02}-{day:02} {hours:02}:{minutes:02}:{seconds:06.3f}"
 
 def encrypt(text, shift):
-	return ""
+	new_text = ""
+	for lettre in text:
+		encrypted_letter = lettre
+		# Crypter seulement les caractères alphabétiques.
+		if lettre.isalpha():
+			index = ord(lettre.upper()) - ord("A")
+			encrypted_index = (index + shift) % 26
+			encrypted_letter = chr(ord("A") + encrypted_index)
+		new_text += encrypted_letter
+	return new_text
 
 def decrypt(encrypted_text, shift):
-	return ""
+	return encrypt(encrypted_text, -shift)	
 
 
 if __name__ == "__main__":
