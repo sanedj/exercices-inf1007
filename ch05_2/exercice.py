@@ -37,7 +37,6 @@ def format_bill_items(data):
 	
 	return result
 
-
 def format_number(number, num_decimal_digits):
 	return f'{number:,.{num_decimal_digits}f}'.replace(',',' ')
 
